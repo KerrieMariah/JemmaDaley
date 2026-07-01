@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0a1428;
+  --color-teal: #3fdcc8;
+  --color-teal-light: #e8faf8;
+  --color-cream: #fafafa;
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-dm-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #0a1428;
+}
+
+::selection {
+  background-color: #3fdcc8;
+  color: #0a1428;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.hero-slide {
+  transition: opacity 1.2s ease-in-out;
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-label {
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.service-number {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  line-height: 1;
+  color: #3fdcc8;
+  opacity: 0.6;
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  line-height: 0.5;
+  color: #3fdcc8;
+}
+
+.instagram-reels-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.instagram-reel-card {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instagram-reel-card:hover {
+  border-color: #3fdcc8;
+  box-shadow: 0 8px 30px rgba(10, 20, 40, 0.08);
+}
+
+.instagram-reel-iframe {
+  display: block;
+  width: 100%;
+  height: 460px;
+  border: 0;
+}
+
+@media (min-width: 640px) {
+  .instagram-reel-card {
+    max-width: 240px;
+  }
+
+  .instagram-reel-iframe {
+    height: 430px;
+  }
+}
