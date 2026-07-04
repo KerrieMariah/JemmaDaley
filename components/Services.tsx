@@ -14,7 +14,7 @@ const services = [
       "Currency & diversification strategy",
       "Ongoing reviews as your life evolves",
     ],
-    image: "/wealthmanagement.png",
+    image: "/services1.webp",
     imageAlt: "Financial charts and portfolio analysis",
   },
   {
@@ -28,7 +28,7 @@ const services = [
       "Life and income protection",
       "Reserves for the unexpected",
     ],
-    image: "/retirement.png",
+    image: "/services5.jpg",
     imageAlt: "Family enjoying time together outdoors",
   },
   {
