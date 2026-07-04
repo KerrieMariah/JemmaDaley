@@ -24,7 +24,7 @@ export default function Home() {
         <Services />
         <Insights />
         <Testimonials />
-        <Consultation />
+        {/* <Consultation /> */}
         <Contact />
       </main>
       <Footer />

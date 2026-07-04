@@ -29,14 +29,16 @@ const testimonials = [
   },
 ];
 
-const BG_IMAGE = "url('/jemma6.jpeg')";
+const BG_IMAGE = "url('/testimonial.png')";
 const PARALLAX_SPEED = 0.5;
+const SLIDE_DURATION = 6000;
 
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [parallaxY, setParallaxY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const rafRef = useRef<number>(0);
+  const [manualAdvanceKey, setManualAdvanceKey] = useState(0);
 
   useEffect(() => {
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -66,10 +68,28 @@ export default function Testimonials() {
     };
   }, []);
 
-  const prev = () =>
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+    }, SLIDE_DURATION);
+
+    return () => window.clearInterval(timer);
+  }, [manualAdvanceKey]);
+
+  const prev = () => {
     setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
-  const next = () =>
+    setManualAdvanceKey((key) => key + 1);
+  };
+
+  const next = () => {
     setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+    setManualAdvanceKey((key) => key + 1);
+  };
+
+  const goTo = (index: number) => {
+    setCurrent(index);
+    setManualAdvanceKey((key) => key + 1);
+  };
 
   return (
     <section
@@ -144,7 +164,7 @@ export default function Testimonials() {
             {testimonials.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setCurrent(i)}
+                onClick={() => goTo(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   current === i ? "bg-teal w-6" : "bg-white/25 w-2"
                 }`}

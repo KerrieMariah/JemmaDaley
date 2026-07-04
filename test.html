@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Center Within | Holistic 7-Day Journeys</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #fbfaf7 0%, #f3efe6 100%);
+            --text-main: #23322b;
+            --text-muted: #5a6e63;
+            --primary: #4a6b52;
+            --primary-glow: rgba(74, 107, 82, 0.15);
+            --accent: #d4a373;
+            --glass: rgba(255, 255, 255, 0.45);
+            --card-shadow: 0 20px 40px rgba(40, 50, 45, 0.06);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(251, 250, 247, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        nav a {
+            margin-left: 2.5rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero Section with Cinematic Background Image --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem 2rem;
+            background: linear-gradient(to bottom, rgba(251, 250, 247, 0.5) 0%, rgba(243, 239, 230, 0.7) 100%),
+                        url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: fadeIn 1.2s ease forwards;
+            background: rgba(251, 250, 247, 0.6);
+            padding: 3rem;
+            border-radius: 40px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--card-shadow);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px var(--primary-glow);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(74, 107, 82, 0.3);
+            background-color: #3d5843;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid rgba(35, 50, 43, 0.2);
+            box-shadow: none;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(35, 50, 43, 0.05);
+            border-color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: none;
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 8rem 4%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* --- Ritual Section --- */
+        .ritual-section {
+            background: rgba(235, 231, 223, 0.4);
+            position: relative;
+        }
+
+        .ritual-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .ritual-step {
+            background: var(--glass);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .ritual-step:hover {
+            transform: translateY(-8px);
+            background: #ffffff;
+            border-color: var(--primary-glow);
+        }
+
+        /* Pure CSS Icons Styling */
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(212, 163, 115, 0.12);
+            border-radius: 50%;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .ritual-step:hover .step-icon {
+            background: var(--primary);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .step-num {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            opacity: 0.5;
+            display: block;
+            margin-top: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .ritual-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .ritual-step p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* --- Courses Section --- */
+        .courses-section {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .course-card {
+            background: #ffffff;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-12px) scale(1.01);
+            box-shadow: 0 30px 60px rgba(40, 50, 45, 0.12);
+        }
+
+        .course-img {
+            height: 260px;
+            width: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .course-card:hover .course-img {
+            transform: scale(1.05);
+        }
+
+        .course-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .course-tag {
+            align-self: flex-start;
+            background: #f4efe6;
+            color: var(--text-muted);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .course-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .course-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* --- AI Section --- */
+        .ai-section {
+            background: linear-gradient(rgba(35, 50, 43, 0.95), rgba(25, 36, 31, 0.98)), 
+                        url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #f7f5f0;
+            text-align: center;
+        }
+
+        .ai-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ai-section .section-title {
+            color: #fff;
+        }
+
+        .ai-badge {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .ai-container p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: #d1dacd;
+        }
+
+        .privacy-box {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            font-style: italic;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #19241f;
+            color: rgba(247, 245, 240, 0.6);
+            text-align: center;
+            padding: 4rem 1rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            .ritual-container { grid-template-columns: repeat(3, 1fr); }
+            .hero h1 { font-size: 3.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero { padding-top: 10rem; }
+            .hero-content { padding: 1.5rem; }
+            header { flex-direction: column; gap: 1rem; padding: 1rem; }
+            nav a { margin: 0 0.7rem; }
+            .ritual-container { grid-template-columns: 1fr; }
+            .courses-grid { grid-template-columns: 1fr; }
+            section { padding: 5rem 6%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">THE CENTER WITHIN</a>
+        <nav>
+            <a href="#ritual">The Method</a>
+            <a href="#courses">Journeys</a>
+            <a href="#ai-insight">AI Synthesis</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Reconnect. Reset.<br>Return to You.</h1>
+            <p>A transformative 7-day sanctuary tailored to align your mind, body, and emotional architecture through an intentional daily 5-step practice.</p>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn">Explore Journeys</a>
+                <a href="#ritual" class="btn btn-secondary">Our Method</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="ritual" class="ritual-section">
+        <h2 class="section-title">The Daily 5-Step Ritual</h2>
+        <p class="section-subtitle">Every day follows an intentional, deeply grounding 30-minute flow.</p>
+        <div class="ritual-container">
+            
+            <div class="ritual-step">
+                <div class="step-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/><path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5.5Z"/><path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1Z"/></svg>
+                </div>
+                <h3>Affirm</h3>
+                <p>Align your cognitive space with a curated daily cosmic intention.</p>
+                <span class="step-num">Step 01</span>
+            </div>
+
+            <div class="ritual-step">
+                <div class="step-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.8 5.4a2.5 2.5 0 1 0-2.2-4.2H2"/><path d="M16 11.7a3 3 0 1 1-2.7-5.3H2"/><path d="M10.2 18.3a2.5 2.5 0 1 1-2.2-4.3H2"/><path d="M16 21.8a2.5 2.5 0 1 0-2.2-4.2H4"/></svg>
+                </div>
+                <h3>Breathe</h3>
+                <p>Instantly regulate your nervous system with guided somatic breathwork.</p>
+                <span class="step-num">Step 02</span>
+            </div>
+
+            <div class="ritual-step">
+                <div class="step-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M5 21a7 7 0 0 1 14 0"/><path d="M12 21V11"/><path d="m12 11-4-3"/><path d="m12 11 4-3"/></svg>
+                </div>
+                <h3>Move</h3>
+                <p>Release deeply held physical tension through gentle, fluid yoga flows.</p>
+                <span class="step-num">Step 03</span>
+            </div>
+
+            <div class="ritual-step">
+                <div class="step-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+                </div>
+                <h3>Reflect</h3>
+                <p>Uncover subconscious blocks by journaling on a targeted daily prompt.</p>
+                <span class="step-num">Step 04</span>
+            </div>
+
+            <div class="ritual-step">
+                <div class="step-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <h3>Stillness</h3>
+                <p>Seal your evolution in 5 minutes of pure, deep, unguided meditation.</p>
+                <span class="step-num">Step 05</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="courses" class="courses-section">
+        <h2 class="section-title">Choose Your Path to Alignment</h2>
+        <p class="section-subtitle">Targeted mindfulness architectures engineered for your three most vital relationships.</p>
+        <div class="courses-grid">
+            
+            <div class="course-card">
+                <div style="overflow:hidden;">
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80" alt="Mindful Nourishment" class="course-img">
+                </div>
+                <div class="course-content">
+                    <span class="course-tag">Nourish & Flow</span>
+                    <h3>Your Relationship with Food</h3>
+                    <p>Break free from emotional cycles, guilt, and restriction. Recalibrate your physical intuition and redesign eating into a sacred act of self-celebration and vitality.</p>
+                    <a href="#" class="btn">Begin This Path</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div style="overflow:hidden;">
+                    <img src="https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?auto=format&fit=crop&w=600&q=80" alt="Generational Healing" class="course-img">
+                </div>
+                <div class="course-content">
+                    <span class="course-tag">Roots & Wings</span>
+                    <h3>Your Relationship with Parents</h3>
+                    <p>Gracefully navigate complex family dynamics. Untangle old generational programming, gently enact healthy boundaries, and discover true independent emotional freedom.</p>
+                    <a href="#" class="btn">Begin This Path</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <div style="overflow:hidden;">
+                    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=600&q=80" alt="Body Positivity" class="course-img">
+                </div>
+                <div class="course-content">
+                    <span class="course-tag">Home in My Skin</span>
+                    <h3>The Space Within Your Body</h3>
+                    <p>Silence the destructive voice of your inner critic. Shift your relationship with your somatic self away from judgment and seamlessly transition into radical, unwavering self-acceptance.</p>
+                    <a href="#" class="btn">Begin This Path</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="ai-insight" class="ai-section">
+        <div class="ai-container">
+            <span class="ai-badge">Introducing Quantum Reflection</span>
+            <h2 class="section-title">The 7-Day Insight Analysis</h2>
+            <p>Your growth shouldn't vanish when you close your journal. At the end of your 7 days, securely offer your reflections to our intuitive AI guide. It translates your hidden linguistic and emotional shifts throughout the week into a deeply customized Mindset Synthesis Report—complete with bespoke recommendations for your continued expansion.</p>
+            <a href="#" class="btn" style="background-color: var(--accent); color: #19241f;">Discover AI Integration</a>
+            <div class="privacy-box">
+                Your vulnerability is completely safe. Journal content is immediately encrypted, analyzed natively, and permanently erased.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 The Center Within. All rights reserved. Cultivating holistic, deep transformation globally.</p>
+    </footer>
+
+</body>
+</html>

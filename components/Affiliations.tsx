@@ -1,10 +1,26 @@
+import Image from "next/image";
+
 const affiliations = [
-  "St. James's Place",
-  "SFC Licensed",
-  "ImpactHK",
-  "The Impact Collective",
-  "Women of Hong Kong",
-  "Outward Bound HK",
+  {
+    name: "St. James's Place",
+    src: "/logos/stjamesplace.png",
+    className: "h-20 w-40",
+  },
+  {
+    name: "ImpactHK",
+    src: "/logos/impacth.png",
+    className: "h-20 w-52",
+  },
+  {
+    name: "Outward Bound Hong Kong",
+    src: "/logos/outwardbound.png",
+    className: "h-24 w-44",
+  },
+  {
+    name: "Women of Hong Kong",
+    src: "/logos/wohk.jpeg",
+    className: "h-20 w-56",
+  },
 ];
 
 export default function Affiliations() {
@@ -14,14 +30,22 @@ export default function Affiliations() {
         Affiliated With
       </p>
       <div className="relative">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...affiliations, ...affiliations].map((name, i) => (
-            <span
-              key={`${name}-${i}`}
-              className="mx-12 font-sans text-lg md:text-xl font-bold text-black uppercase tracking-wide"
+        <div className="flex animate-marquee items-center whitespace-nowrap">
+          {[...affiliations, ...affiliations].map((logo, i) => (
+            <div
+              key={`${logo.name}-${i}`}
+              className="mx-8 flex h-28 w-64 items-center justify-center "
             >
-              {name}
-            </span>
+              <div className={`relative ${logo.className}`}>
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  fill
+                  className="object-contain"
+                  sizes="256px"
+                />
+              </div>
+            </div>
           ))}
         </div>
       </div>

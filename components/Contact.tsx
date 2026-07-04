@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Contact() {
@@ -13,18 +14,38 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
           <div>
             <p className="section-label text-teal mb-4">Get In Touch</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light text-navy mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl font-light text-navy mb-6 leading-tight">
               Let&apos;s start the{" "}
-              <span className="italic">conversation</span>
+              <span className="italic text-teal">conversation</span>
             </h2>
-            <p className="text-navy/60 font-light leading-relaxed mb-10">
-              I&apos;m based in Hong Kong and available for in-person or virtual
-              consultations. Reach out to discuss your financial goals — no
-              obligation, just clarity.
+
+            <div className="relative max-w-md mb-10">
+              <div className="relative aspect-[4/3] overflow-hidden bg-cream">
+                <Image
+                  src="/jemma3.jpeg"
+                  alt="Jemma Daley"
+                  fill
+                  className="object-cover object-[center_48%]"
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                />
+              </div>
+              <div
+                className="absolute -bottom-3 -right-3 h-20 w-20 border border-teal/70"
+                aria-hidden="true"
+              />
+            </div>
+
+            <p className="text-navy/60 font-light leading-relaxed mb-10 max-w-md">
+            Whether you&apos;re building wealth from scratch, planning for
+              retirement, or navigating a major life transition — let&apos;s
+              create a plan that aligns with what matters most to you. 
             </p>
+
+
+
 
             <div className="space-y-4 text-navy/70">
               <p>
@@ -37,10 +58,6 @@ export default function Contact() {
                 </a>
               </p>
               <p>
-                <span className="section-label text-navy/40 mr-4">L.</span>
-                Hong Kong SAR
-              </p>
-              <p>
                 <span className="section-label text-navy/40 mr-4">In.</span>
                 <a
                   href="https://www.linkedin.com/in/jemmadaley"
@@ -51,20 +68,31 @@ export default function Contact() {
                   linkedin.com/in/jemmadaley
                 </a>
               </p>
+              <p>
+                <span className="section-label text-navy/40 mr-4">Ig.</span>
+                <a
+                  href="https://www-fallback.instagram.com/jemmadaley/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-teal transition-colors"
+                >
+                  instagram.com/jemmadaley
+                </a>
+              </p>
             </div>
           </div>
 
-          <div className="bg-cream p-8 lg:p-12">
-            <p className="section-label text-navy/50 mb-2">Join Our List</p>
-            <p className="text-navy/60 text-sm font-light mb-8">
-              Receive updates on financial insights, events, and exclusive
-              resources for expats in Hong Kong.
+          <div className="bg-navy p-8 lg:p-12 self-center text-white">
+            <p className="section-label text-teal mb-2">Contact Form</p>
+            <p className="text-white/65 text-sm font-light mb-8">
+              Tell me a little about what you&apos;re looking for, and I&apos;ll
+              come back to you with the next best step.
             </p>
 
             {submitted ? (
               <div className="text-center py-12">
-                <p className="font-serif text-2xl text-navy mb-2">Thank you!</p>
-                <p className="text-navy/60 font-light">
+                <p className="font-serif text-2xl text-white mb-2">Thank you!</p>
+                <p className="text-white/65 font-light">
                   We&apos;ll be in touch soon.
                 </p>
               </div>
@@ -72,23 +100,23 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
-                    htmlFor="firstName"
-                    className="section-label text-navy/40 block mb-2"
+                    htmlFor="name"
+                    className="section-label text-teal block mb-2"
                   >
-                    First Name
+                    Name
                   </label>
                   <input
                     type="text"
-                    id="firstName"
-                    name="firstName"
+                    id="name"
+                    name="name"
                     required
-                    className="w-full bg-white border border-gray-200 px-4 py-3 text-navy text-sm focus:outline-none focus:border-teal transition-colors"
+                    className="w-full bg-white/10 border border-white/15 px-4 py-3 text-white text-sm focus:outline-none focus:border-teal transition-colors"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="section-label text-navy/40 block mb-2"
+                    className="section-label text-teal block mb-2"
                   >
                     Email Address
                   </label>
@@ -97,10 +125,25 @@ export default function Contact() {
                     id="email"
                     name="email"
                     required
-                    className="w-full bg-white border border-gray-200 px-4 py-3 text-navy text-sm focus:outline-none focus:border-teal transition-colors"
+                    className="w-full bg-white/10 border border-white/15 px-4 py-3 text-white text-sm focus:outline-none focus:border-teal transition-colors"
                   />
                 </div>
-                <label className="flex items-start gap-3 text-sm text-navy/50 font-light cursor-pointer">
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="section-label text-teal block mb-2"
+                  >
+                    How Can I Help?
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    className="w-full resize-none bg-white/10 border border-white/15 px-4 py-3 text-white text-sm focus:outline-none focus:border-teal transition-colors"
+                  />
+                </div>
+                <label className="flex items-start gap-3 text-sm text-white/55 font-light cursor-pointer">
                   <input
                     type="checkbox"
                     required
@@ -110,9 +153,9 @@ export default function Contact() {
                 </label>
                 <button
                   type="submit"
-                  className="w-full py-4 bg-navy text-white text-xs tracking-[0.2em] uppercase hover:bg-teal hover:text-navy transition-all duration-300"
+                  className="w-full py-4 bg-teal text-navy text-xs font-semibold tracking-[0.2em] uppercase hover:bg-white transition-all duration-300"
                 >
-                  Subscribe
+                  Send Message
                 </button>
               </form>
             )}

@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const services = [
   {
-    number: "01",
     title: "Wealth Management",
     accent: "& Portfolio Structuring",
+    intro: "For expats who want their wealth organized, invested, and working internationally.",
     description:
       "Living internationally means your money rarely sits in one place. I help you structure investments that respect your residency, currency exposure, and long-term ambitions — without the jargon or overwhelm.",
     highlights: [
@@ -14,13 +14,13 @@ const services = [
       "Ongoing reviews as your life evolves",
     ],
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
+      "/wealthmanagement.png",
     imageAlt: "Financial charts and portfolio analysis",
   },
   {
-    number: "02",
     title: "Retirement",
     accent: "& Protection Planning",
+    intro: "For families and professionals who want security now and flexibility later.",
     description:
       "From funding your children's education to securing the retirement you actually want, the right plan gives you options — not anxiety. We'll map out protection and savings that fit your family's real life abroad.",
     highlights: [
@@ -29,13 +29,13 @@ const services = [
       "Reserves for the unexpected",
     ],
     image:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80",
+      "/retirement.png",
     imageAlt: "Family enjoying time together outdoors",
   },
   {
-    number: "03",
     title: "Tax, Trust",
     accent: "& Estate Planning",
+    intro: "For cross-border lives where tax, legacy, and long-term decisions need clarity.",
     description:
       "Expat wealth comes with layers — multiple jurisdictions, shifting rules, and big decisions about what you leave behind. I help you navigate trust and estate planning with clarity, so your legacy is handled on your terms.",
     highlights: [
@@ -44,18 +44,30 @@ const services = [
       "Legacy planning for your family",
     ],
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80",
+      "/estate.png",
     imageAlt: "Professional reviewing financial documents at a desk",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 lg:py-32 bg-navy text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <section
+      id="services"
+      className="relative overflow-hidden py-24 lg:py-32 bg-navy text-white"
+    >
+      <div
+        className="absolute -top-40 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-teal/10 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-0 right-0 h-96 w-96 translate-x-1/3 translate-y-1/3 rounded-full bg-teal/5 blur-3xl"
+        aria-hidden="true"
+      />
+
+      <div className="relative max-w-[100rem] mx-auto px-6 lg:px-10 xl:px-12">
         <div className="max-w-2xl mx-auto text-center mb-16 lg:mb-20">
           <p className="section-label text-teal mb-4">The Services</p>
-          <h2 className="font-serif text-4xl md:text-5xl font-light leading-snug mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.05] mb-6">
             How I Can <span className="italic text-teal">Help</span>
           </h2>
           <p className="text-white/60 font-light leading-relaxed">
@@ -65,53 +77,56 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="space-y-16 lg:space-y-20">
-          {services.map((service, index) => {
-            const reversed = index % 2 === 1;
+        <div className="mx-auto max-w-6xl space-y-14 lg:space-y-16">
+          {services.map((service, index) => (
+            <article
+              key={service.title}
+              className="group relative overflow-hidden border border-white/12 bg-white/[0.035] p-3 shadow-[0_30px_90px_rgba(0,0,0,0.22)] backdrop-blur-sm transition-all duration-500 hover:border-teal/55 hover:bg-white/[0.05] md:p-4"
+            >
+              <div className="relative min-h-[360px] overflow-hidden bg-white/5 md:min-h-[430px] lg:min-h-[500px]">
+                <Image
+                  src={service.image}
+                  alt={service.imageAlt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                  sizes="(max-width: 1024px) 100vw, 72rem"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-navy to-transparent" />
 
-            return (
-              <article
-                key={service.number}
-                className={`grid lg:grid-cols-2 gap-10 lg:gap-14 xl:gap-16 items-center pb-16 lg:pb-20 border-b border-white/10 last:border-0 last:pb-0 ${
-                  reversed ? "lg:[&>*:first-child]:order-2" : ""
-                }`}
-              >
-                <div className="relative group">
-                  <div className="relative aspect-[5/4] overflow-hidden border border-white/10">
-                    <Image
-                      src={service.image}
-                      alt={service.imageAlt}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-navy/15 group-hover:bg-navy/5 transition-colors duration-500" />
-                  </div>
-                  <div
-                    className={`absolute -bottom-3 h-px w-16 bg-teal hidden lg:block ${
-                      reversed ? "right-0" : "left-0"
-                    }`}
-                    aria-hidden="true"
-                  />
+                <div className="absolute left-6 top-6 flex items-center gap-4 md:left-8 md:top-8">
+                  <span className="h-px w-14 bg-teal" />
+                  <span className="text-xs font-bold uppercase tracking-[0.3em] text-white/70">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
-                <div className={reversed ? "lg:pr-6" : "lg:pl-6"}>
-                  <h3 className="font-serif text-3xl md:text-4xl font-light leading-snug mb-6">
-                    {service.title}{" "}
-                    <span className="italic text-teal">{service.accent}</span>
-                  </h3>
+                <h3 className="absolute bottom-7 left-6 right-6 max-w-3xl font-serif text-4xl font-light leading-[0.98] text-white md:bottom-9 md:left-8 md:right-8 md:text-5xl lg:text-6xl">
+                  {service.title}
+                  <br />
+                  <span className="italic text-teal">{service.accent}</span>
+                </h3>
+              </div>
 
-                  <p className="text-white/60 font-light leading-relaxed mb-8 max-w-lg">
+              <div className="grid gap-8 px-5 pb-7 pt-8 md:px-8 md:pb-9 md:pt-9 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-10 lg:py-10">
+                <div>
+                  <p className="max-w-md text-sm font-bold uppercase leading-relaxed tracking-[0.18em] text-white/80">
+                    {service.intro}
+                  </p>
+                  <div className="mt-7 hidden h-px w-24 bg-teal lg:block" />
+                </div>
+
+                <div>
+                  <p className="mb-8 text-base font-light leading-relaxed text-white/62">
                     {service.description}
                   </p>
 
-                  <ul className="space-y-2.5 mb-8">
+                  <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
                     {service.highlights.map((item) => (
                       <li
                         key={item}
-                        className="flex items-center gap-3 text-sm text-white/80 font-medium"
+                        className="border-l border-teal/70 pl-4 text-sm font-semibold leading-relaxed text-white/88"
                       >
-                        <span className="w-8 h-px bg-teal shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -119,14 +134,17 @@ export default function Services() {
 
                   <Link
                     href="#contact"
-                    className="inline-flex items-center px-8 py-3.5 bg-teal text-navy text-xs font-semibold tracking-[0.2em] uppercase hover:bg-white transition-all duration-300"
+                    className="mt-9 inline-flex items-center bg-teal px-8 py-3.5 text-xs font-bold uppercase tracking-[0.22em] text-navy transition-all duration-300 hover:bg-white"
                   >
                     Inquire Today
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
                   </Link>
                 </div>
-              </article>
-            );
-          })}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

@@ -10,11 +10,11 @@ const slides = [
     alt: "Jemma Daley – Financial Advisor",
     position: "right center",
   },
-  {
-    src: "/jemma21hero.png",
-    alt: "Jemma Daley – Financial Advisor",
-    position: "right center",
-  },
+  // {
+  //   src: "/jemma21hero.png",
+  //   alt: "Jemma Daley – Financial Advisor",
+  //   position: "right center",
+  // },
 ];
 
 const SLIDE_DURATION = 6500;
