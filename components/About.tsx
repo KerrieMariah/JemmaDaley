@@ -3,21 +3,21 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <section id="about" className="bg-navy py-20 lg:py-28 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-[0.95fr_1.35fr_1fr] gap-12 lg:gap-10 xl:gap-12 items-start">
+    <section id="about" className="overflow-hidden bg-navy py-16 sm:py-20 lg:py-28">
+      <div className="mx-auto max-w-6xl px-6 lg:px-10">
+        <div className="grid items-start gap-10 sm:gap-12 lg:grid-cols-[0.95fr_1.35fr_1fr] lg:gap-10 xl:gap-12">
           {/* Left — copy */}
-          <div className="order-2 lg:order-1 lg:pt-1">
-            <h2 className="font-serif text-5xl md:text-6xl lg:text-[4.15rem] font-light text-white uppercase tracking-normal leading-[0.82] mb-5">
+          <div className="order-2 text-center lg:order-1 lg:pt-1 lg:text-left">
+            <h2 className="mb-5 font-serif text-5xl font-light uppercase leading-[0.82] tracking-normal text-white md:text-6xl lg:text-[4.15rem]">
               Meet
               <br />
               Jemma
             </h2>
-            <p className="font-serif text-lg md:text-xl text-white/75 uppercase leading-tight mb-9">
+            <p className="mb-8 font-serif text-lg uppercase leading-tight text-white/75 md:text-xl lg:mb-9">
               The Financial Advisor
             </p>
 
-            <div className="space-y-5 text-white/58 text-sm leading-relaxed font-light max-w-[16rem]">
+            <div className="mx-auto max-w-md space-y-5 text-sm font-light leading-relaxed text-white/58 lg:mx-0 lg:max-w-[16rem]">
               <p>
                 My advising journey has deep roots in my personal path abroad.
                 Originally from Scotland, I moved to Hong Kong in 2018 and
@@ -34,7 +34,7 @@ export default function About() {
 
             <Link
               href="#contact"
-              className="inline-flex items-center gap-3 mt-10 px-7 py-3.5 bg-teal text-navy text-[0.72rem] font-semibold tracking-[0.18em] uppercase hover:bg-white transition-all duration-300"
+              className="mt-10 inline-flex items-center gap-3 bg-teal px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-white"
             >
               Read More
               <span aria-hidden="true">→</span>
@@ -42,7 +42,7 @@ export default function About() {
           </div>
 
           {/* Center — primary portrait */}
-          <div className="order-1 lg:order-2 relative mx-auto w-full max-w-md lg:max-w-none">
+          <div className="relative order-1 mx-auto w-full max-w-sm sm:max-w-md lg:order-2 lg:max-w-none">
             {/* Circular badge */}
             <div
               className="absolute -top-8 -left-5 lg:-left-10 z-20 w-24 h-24 lg:w-28 lg:h-28"
@@ -93,9 +93,9 @@ export default function About() {
 
           {/* Right — secondary image + tagline */}
           <div className="order-3 flex flex-col gap-8 lg:gap-9 lg:pt-0">
-            <div className="relative aspect-square w-full max-w-xs lg:max-w-none mx-auto lg:mx-0 overflow-hidden">
+            <div className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden sm:max-w-sm lg:mx-0 lg:max-w-none">
               <Image
-                src="/jemma5.jpeg"
+                src="/meetjemma.png"
                 alt="Jemma Daley – Hong Kong"
                 fill
                 className="object-cover object-left"
@@ -103,7 +103,7 @@ export default function About() {
               />
             </div>
 
-            <div className="text-center lg:text-left max-w-xs mx-auto lg:mx-0">
+            <div className="mx-auto max-w-sm text-center lg:mx-0 lg:max-w-xs lg:text-left">
               <p className="font-serif text-base text-white uppercase leading-tight mb-2">
                 Empowering your vision
               </p>

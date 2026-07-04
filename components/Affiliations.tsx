@@ -25,29 +25,46 @@ const affiliations = [
 
 export default function Affiliations() {
   return (
-    <section className="py-16 bg-cream border-y border-gray-100 overflow-hidden">
-      <p className="section-label text-navy/40 text-center mb-10">
+    <section className="overflow-hidden border-y border-gray-100 bg-cream py-16">
+      <p className="section-label mb-10 text-center text-navy/40">
         Affiliated With
       </p>
       <div className="relative">
-        <div className="flex animate-marquee items-center whitespace-nowrap">
-          {[...affiliations, ...affiliations].map((logo, i) => (
+        <div className="flex w-max animate-marquee items-center">
+          {[0, 1].map((group) => (
             <div
-              key={`${logo.name}-${i}`}
-              className="mx-8 flex h-28 w-64 items-center justify-center "
+              key={group}
+              className="flex min-w-screen shrink-0 items-center justify-around gap-12 px-8"
+              aria-hidden={group === 1}
             >
-              <div className={`relative ${logo.className}`}>
-                <Image
-                  src={logo.src}
-                  alt={logo.name}
-                  fill
-                  className="object-contain"
-                  sizes="256px"
-                />
-              </div>
+              {affiliations.map((logo) => (
+                <div
+                  key={`${logo.name}-${group}`}
+                  className="flex h-28 w-64 shrink-0 items-center justify-center"
+                >
+                  <div className={`relative ${logo.className}`}>
+                    <Image
+                      src={logo.src}
+                      alt={logo.name}
+                      fill
+                      className="object-contain"
+                      sizes="256px"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>
+
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-cream to-transparent"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-cream to-transparent"
+          aria-hidden="true"
+        />
       </div>
     </section>
   );

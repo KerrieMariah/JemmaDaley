@@ -94,7 +94,7 @@ export default function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-28 lg:py-36 min-h-[520px] lg:min-h-[600px]"
+      className="relative min-h-[560px] py-20 sm:py-24 lg:min-h-[600px] lg:py-36"
     >
       {/* Desktop: fixed-background parallax */}
       <div
@@ -130,10 +130,12 @@ export default function Testimonials() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <p className="section-label text-white/50 mb-16">Testimonials</p>
+      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+        <p className="section-label mb-12 text-white/50 lg:mb-16">
+          Testimonials
+        </p>
 
-        <div className="relative min-h-[220px] lg:min-h-[200px]">
+        <div className="relative min-h-[290px] sm:min-h-[240px] lg:min-h-[200px]">
           {testimonials.map((t, i) => (
             <div
               key={t.name}
@@ -143,7 +145,7 @@ export default function Testimonials() {
                   : "opacity-0 translate-y-4 absolute inset-0"
               }`}
             >
-              <p className="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-white leading-relaxed italic mb-10">
+              <p className="mb-8 font-serif text-[1.55rem] font-light italic leading-relaxed text-white sm:text-2xl md:text-3xl lg:mb-10 lg:text-4xl">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <p className="text-white font-medium tracking-wide">{t.name}</p>
@@ -152,7 +154,7 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="flex items-center justify-center gap-6 mt-12">
+        <div className="mt-10 flex items-center justify-center gap-5 sm:gap-6 lg:mt-12">
           <button
             onClick={prev}
             className="w-10 h-10 border border-white/25 text-white flex items-center justify-center hover:border-teal hover:text-teal transition-colors"

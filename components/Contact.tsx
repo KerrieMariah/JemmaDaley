@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import Reveal from "@/components/Reveal";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -12,17 +13,23 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-stretch">
-          <div>
-            <p className="section-label text-teal mb-4">Get In Touch</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light text-navy mb-6 leading-tight">
+    <section id="contact" className="bg-white py-20 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="grid items-start gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-24">
+          <Reveal>
+            <p className="section-label mb-4 text-teal">Get In Touch</p>
+            <h2 className="mb-6 font-serif text-4xl font-light leading-tight text-navy sm:text-5xl">
               Let&apos;s start the{" "}
               <span className="italic text-teal">conversation</span>
             </h2>
 
-            <div className="relative max-w-md mb-10">
+            <p className="mb-10 max-w-md font-light leading-relaxed text-navy/60">
+              Whether you&apos;re building wealth from scratch, planning for
+              retirement, or navigating a major life transition, let&apos;s
+              create a plan that aligns with what matters most to you.
+            </p>
+
+            <div className="relative mb-10 max-w-md">
               <div className="relative aspect-[4/3] overflow-hidden bg-cream">
                 <Image
                   src="/jemma3.jpeg"
@@ -38,61 +45,55 @@ export default function Contact() {
               />
             </div>
 
-            <p className="text-navy/60 font-light leading-relaxed mb-10 max-w-md">
-            Whether you&apos;re building wealth from scratch, planning for
-              retirement, or navigating a major life transition — let&apos;s
-              create a plan that aligns with what matters most to you. 
-            </p>
-
-
-
-
-            <div className="space-y-4 text-navy/70">
-              <p>
-                <span className="section-label text-navy/40 mr-4">E.</span>
+            <div className="space-y-4 break-words text-sm text-navy/70 sm:text-base">
+              <p className="flex flex-wrap gap-x-4 gap-y-1">
+                <span className="section-label mr-4 text-navy/40">E.</span>
                 <a
                   href="mailto:jemma.daley@sjpp.asia"
-                  className="hover:text-teal transition-colors"
+                  className="transition-colors hover:text-teal"
                 >
                   jemma.daley@sjpp.asia
                 </a>
               </p>
-              <p>
-                <span className="section-label text-navy/40 mr-4">In.</span>
+              <p className="flex flex-wrap gap-x-4 gap-y-1">
+                <span className="section-label mr-4 text-navy/40">In.</span>
                 <a
                   href="https://www.linkedin.com/in/jemmadaley"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-teal transition-colors"
+                  className="transition-colors hover:text-teal"
                 >
                   linkedin.com/in/jemmadaley
                 </a>
               </p>
-              <p>
-                <span className="section-label text-navy/40 mr-4">Ig.</span>
+              <p className="flex flex-wrap gap-x-4 gap-y-1">
+                <span className="section-label mr-4 text-navy/40">Ig.</span>
                 <a
                   href="https://www-fallback.instagram.com/jemmadaley/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-teal transition-colors"
+                  className="transition-colors hover:text-teal"
                 >
                   instagram.com/jemmadaley
                 </a>
               </p>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="bg-navy p-8 lg:p-12 self-center text-white">
-            <p className="section-label text-teal mb-2">Contact Form</p>
-            <p className="text-white/65 text-sm font-light mb-8">
+          <Reveal
+            className="self-center border border-navy/10 bg-cream p-6 sm:p-8 lg:p-12"
+            delay={120}
+          >
+            <p className="section-label mb-2 text-teal">Contact Form</p>
+            <p className="mb-8 text-sm font-light text-navy/60">
               Tell me a little about what you&apos;re looking for, and I&apos;ll
               come back to you with the next best step.
             </p>
 
             {submitted ? (
-              <div className="text-center py-12">
-                <p className="font-serif text-2xl text-white mb-2">Thank you!</p>
-                <p className="text-white/65 font-light">
+              <div className="py-12 text-center">
+                <p className="mb-2 font-serif text-2xl text-navy">Thank you!</p>
+                <p className="font-light text-navy/60">
                   We&apos;ll be in touch soon.
                 </p>
               </div>
@@ -101,7 +102,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="section-label text-teal block mb-2"
+                    className="section-label mb-2 block text-navy/45"
                   >
                     Name
                   </label>
@@ -110,13 +111,13 @@ export default function Contact() {
                     id="name"
                     name="name"
                     required
-                    className="w-full bg-white/10 border border-white/15 px-4 py-3 text-white text-sm focus:outline-none focus:border-teal transition-colors"
+                    className="w-full border border-navy/12 bg-white px-4 py-3 text-base text-navy transition-colors focus:border-teal focus:outline-none sm:text-sm"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="section-label text-teal block mb-2"
+                    className="section-label mb-2 block text-navy/45"
                   >
                     Email Address
                   </label>
@@ -125,13 +126,13 @@ export default function Contact() {
                     id="email"
                     name="email"
                     required
-                    className="w-full bg-white/10 border border-white/15 px-4 py-3 text-white text-sm focus:outline-none focus:border-teal transition-colors"
+                    className="w-full border border-navy/12 bg-white px-4 py-3 text-base text-navy transition-colors focus:border-teal focus:outline-none sm:text-sm"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="message"
-                    className="section-label text-teal block mb-2"
+                    className="section-label mb-2 block text-navy/45"
                   >
                     How Can I Help?
                   </label>
@@ -140,10 +141,10 @@ export default function Contact() {
                     name="message"
                     rows={5}
                     required
-                    className="w-full resize-none bg-white/10 border border-white/15 px-4 py-3 text-white text-sm focus:outline-none focus:border-teal transition-colors"
+                    className="w-full resize-none border border-navy/12 bg-white px-4 py-3 text-base text-navy transition-colors focus:border-teal focus:outline-none sm:text-sm"
                   />
                 </div>
-                <label className="flex items-start gap-3 text-sm text-white/55 font-light cursor-pointer">
+                <label className="flex cursor-pointer items-start gap-3 text-sm font-light text-navy/55">
                   <input
                     type="checkbox"
                     required
@@ -153,13 +154,13 @@ export default function Contact() {
                 </label>
                 <button
                   type="submit"
-                  className="w-full py-4 bg-teal text-navy text-xs font-semibold tracking-[0.2em] uppercase hover:bg-white transition-all duration-300"
+                  className="w-full bg-navy py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-teal hover:text-navy sm:tracking-[0.2em]"
                 >
                   Send Message
                 </button>
               </form>
             )}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

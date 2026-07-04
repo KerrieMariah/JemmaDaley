@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 
 const services = [
   {
@@ -13,8 +14,7 @@ const services = [
       "Currency & diversification strategy",
       "Ongoing reviews as your life evolves",
     ],
-    image:
-      "/wealthmanagement.png",
+    image: "/wealthmanagement.png",
     imageAlt: "Financial charts and portfolio analysis",
   },
   {
@@ -28,8 +28,7 @@ const services = [
       "Life and income protection",
       "Reserves for the unexpected",
     ],
-    image:
-      "/retirement.png",
+    image: "/retirement.png",
     imageAlt: "Family enjoying time together outdoors",
   },
   {
@@ -43,8 +42,7 @@ const services = [
       "Trust & estate planning",
       "Legacy planning for your family",
     ],
-    image:
-      "/estate.png",
+    image: "/estate.png",
     imageAlt: "Professional reviewing financial documents at a desk",
   },
 ];
@@ -53,97 +51,108 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden py-24 lg:py-32 bg-navy text-white"
+      className="relative overflow-hidden bg-navy py-20 text-white lg:py-32"
     >
       <div
-        className="absolute -top-40 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-teal/10 blur-3xl"
+        className="absolute -right-16 top-12 hidden font-serif text-[12rem] font-light leading-none text-white/[0.035] lg:block"
         aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-0 right-0 h-96 w-96 translate-x-1/3 translate-y-1/3 rounded-full bg-teal/5 blur-3xl"
-        aria-hidden="true"
-      />
-
-      <div className="relative max-w-[100rem] mx-auto px-6 lg:px-10 xl:px-12">
-        <div className="max-w-2xl mx-auto text-center mb-16 lg:mb-20">
-          <p className="section-label text-teal mb-4">The Services</p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light leading-[1.05] mb-6">
-            How I Can <span className="italic text-teal">Help</span>
-          </h2>
-          <p className="text-white/60 font-light leading-relaxed">
+      >
+        Services
+      </div>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        <Reveal className="mb-12 grid gap-6 sm:mb-16 lg:mb-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div>
+            <p className="section-label mb-5 text-teal">My Services</p>
+            <h2 className="font-serif text-[clamp(3rem,7vw,72px)] font-medium uppercase leading-[0.88] tracking-[-0.02em] text-white">
+              Guidance for
+              <br />
+              <span className="text-teal">life abroad</span>
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm font-light leading-relaxed text-white/62 md:text-base lg:ml-auto">
             Every expat story is different. Whether you&apos;re building from
             scratch, planning a major transition, or protecting what you&apos;ve
-            already achieved — here&apos;s where we start.
+            already achieved, these are the calm, practical conversations where
+            we start.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mx-auto max-w-6xl space-y-14 lg:space-y-16">
+        <div className="space-y-8 lg:space-y-10">
           {services.map((service, index) => (
-            <article
-              key={service.title}
-              className="group relative overflow-hidden border border-white/12 bg-white/[0.035] p-3 shadow-[0_30px_90px_rgba(0,0,0,0.22)] backdrop-blur-sm transition-all duration-500 hover:border-teal/55 hover:bg-white/[0.05] md:p-4"
-            >
-              <div className="relative min-h-[360px] overflow-hidden bg-white/5 md:min-h-[430px] lg:min-h-[500px]">
-                <Image
-                  src={service.image}
-                  alt={service.imageAlt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
-                  sizes="(max-width: 1024px) 100vw, 72rem"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-navy to-transparent" />
-
-                <div className="absolute left-6 top-6 flex items-center gap-4 md:left-8 md:top-8">
-                  <span className="h-px w-14 bg-teal" />
-                  <span className="text-xs font-bold uppercase tracking-[0.3em] text-white/70">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+            <Reveal key={service.title} delay={index * 90}>
+              <article
+                className={`group grid overflow-hidden border border-white/12 bg-white/[0.045] shadow-[0_28px_80px_rgba(0,0,0,0.22)] backdrop-blur-sm transition-all duration-500 hover:border-teal/60 hover:bg-white/[0.065] ${
+                  index % 2 === 1
+                    ? "lg:grid-cols-[1.15fr_0.85fr]"
+                    : "lg:grid-cols-[0.9fr_1.1fr]"
+                }`}
+              >
+                <div
+                  className={`relative min-h-[240px] overflow-hidden bg-navy sm:min-h-[280px] md:min-h-[360px] lg:min-h-full ${
+                    index % 2 === 1 ? "lg:order-2" : ""
+                  }`}
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                  />
+                  <div className="absolute inset-0 bg-navy/10 transition-colors duration-500 group-hover:bg-navy/20" />
                 </div>
 
-                <h3 className="absolute bottom-7 left-6 right-6 max-w-3xl font-serif text-4xl font-light leading-[0.98] text-white md:bottom-9 md:left-8 md:right-8 md:text-5xl lg:text-6xl">
-                  {service.title}
-                  <br />
-                  <span className="italic text-teal">{service.accent}</span>
-                </h3>
-              </div>
+                <div className="flex flex-col justify-center p-6 sm:p-8 md:p-10 lg:p-14">
+                  <div className="mb-7 flex items-center gap-5 sm:mb-8">
+                    <span className="h-1.5 w-1.5 rounded-full bg-teal" />
+                    <span className="h-px flex-1 bg-white/12" />
+                  </div>
 
-              <div className="grid gap-8 px-5 pb-7 pt-8 md:px-8 md:pb-9 md:pt-9 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-10 lg:py-10">
-                <div>
-                  <p className="max-w-md text-sm font-bold uppercase leading-relaxed tracking-[0.18em] text-white/80">
-                    {service.intro}
-                  </p>
-                  <div className="mt-7 hidden h-px w-24 bg-teal lg:block" />
-                </div>
+                  <div className="grid gap-8 2xl:grid-cols-[0.85fr_1.15fr] 2xl:gap-12">
+                    <div>
+                      <h3 className="font-serif text-3xl font-light leading-[0.95] text-white sm:text-4xl md:text-5xl">
+                        {service.title}
+                        <br />
+                        <span className="italic text-teal">
+                          {service.accent}
+                        </span>
+                      </h3>
+                      <p className="mt-6 text-xs font-bold uppercase leading-relaxed tracking-[0.16em] text-white/70 sm:mt-7 sm:tracking-[0.2em]">
+                        {service.intro}
+                      </p>
+                    </div>
 
-                <div>
-                  <p className="mb-8 text-base font-light leading-relaxed text-white/62">
-                    {service.description}
-                  </p>
+                    <div>
+                      <p className="mb-8 text-sm font-light leading-relaxed text-white/60 md:text-base">
+                        {service.description}
+                      </p>
 
-                  <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-                    {service.highlights.map((item) => (
-                      <li
-                        key={item}
-                        className="border-l border-teal/70 pl-4 text-sm font-semibold leading-relaxed text-white/88"
+                      <ul className="divide-y divide-white/10 border-y border-white/10">
+                        {service.highlights.map((item) => (
+                          <li
+                            key={item}
+                            className="flex items-start gap-4 py-3 text-sm font-semibold leading-relaxed text-white/78"
+                          >
+                            <span className="mt-2 h-px w-6 shrink-0 bg-teal" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <Link
+                        href="#contact"
+                        className="mt-9 inline-flex items-center border border-white/30 px-6 py-3.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:border-teal hover:bg-teal hover:text-navy sm:px-7 sm:tracking-[0.24em]"
                       >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link
-                    href="#contact"
-                    className="mt-9 inline-flex items-center bg-teal px-8 py-3.5 text-xs font-bold uppercase tracking-[0.22em] text-navy transition-all duration-300 hover:bg-white"
-                  >
-                    Inquire Today
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </Link>
+                        Inquire Today
+                        <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">
+                          →
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -9,7 +9,11 @@ const footerNav = [
 ];
 
 const footerLinks = [
-  { href: "https://www.linkedin.com/in/jemmadaley", label: "LinkedIn", external: true },
+  {
+    href: "https://www.linkedin.com/in/jemmadaley",
+    label: "LinkedIn",
+    external: true,
+  },
   { href: "#insights", label: "Podcast", external: false },
   { href: "#contact", label: "Newsletter", external: false },
   { href: "#contact", label: "Legal", external: false },
@@ -19,10 +23,10 @@ const footerLinks = [
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
-      <div className="max-w-5xl mx-auto px-6 lg:px-10 py-20 lg:py-24">
-        <div className="grid md:grid-cols-[1fr_1.35fr_1fr] gap-12 lg:gap-10 items-start">
+      <div className="mx-auto max-w-5xl px-6 py-16 lg:px-10 lg:py-24">
+        <div className="grid items-start gap-10 text-center md:grid-cols-[1fr_1.35fr_1fr] md:gap-12 md:text-left lg:gap-10">
           {/* Left nav */}
-          <nav className="flex flex-col gap-3 order-2 md:order-1 md:pt-[7.25rem]">
+          <nav className="order-2 flex flex-col gap-3 md:order-1 md:pt-[7.25rem]">
             {footerNav.map((link) => (
               <Link
                 key={link.href}
@@ -35,7 +39,7 @@ export default function Footer() {
           </nav>
 
           {/* Center — brand & contact */}
-          <div className="text-center order-1 md:order-2">
+          <div className="order-1 text-center md:order-2">
             <p className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] font-light uppercase tracking-[0.12em] leading-tight mb-8">
               Jemma
               <br />
@@ -96,7 +100,7 @@ export default function Footer() {
           </div>
 
           {/* Right nav */}
-          <nav className="flex flex-col gap-3 md:items-end order-3 md:pt-[7.25rem]">
+          <nav className="order-3 flex flex-col gap-3 md:items-end md:pt-[7.25rem]">
             {footerLinks.map((link) => (
               <Link
                 key={link.label}
@@ -112,7 +116,7 @@ export default function Footer() {
           </nav>
         </div>
 
-        <p className="text-center text-xs text-white/30 mt-16 lg:mt-20">
+        <p className="mt-12 text-center text-xs text-white/30 lg:mt-20">
           &copy; Jemma Daley {new Date().getFullYear()}
         </p>
       </div>

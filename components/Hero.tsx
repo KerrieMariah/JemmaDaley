@@ -54,7 +54,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-[100svh] overflow-hidden bg-navy">
+    <section
+      id="home"
+      className="relative min-h-[100svh] overflow-hidden bg-navy"
+    >
       {/* Background slides */}
       <div className="absolute inset-0">
         {slides.map((slide, i) => (
@@ -79,8 +82,8 @@ export default function Hero() {
         ))}
 
         {/* Subtle left-side vignette for text readability only */}
-        <div className="absolute inset-0 z-20 bg-gradient-to-r from-navy/70 from-0% via-navy/25 via-35% to-transparent to-65%" />
-        <div className="absolute inset-0 z-20 bg-gradient-to-t from-navy/50 via-transparent to-navy/20 lg:from-transparent" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-r from-navy/85 via-navy/45 to-navy/5 lg:from-navy/70 lg:from-0% lg:via-navy/25 lg:via-35% lg:to-transparent lg:to-65%" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-navy/70 via-transparent to-navy/20 lg:from-transparent" />
       </div>
 
       {/* Decorative watermark */}
@@ -98,7 +101,7 @@ export default function Hero() {
       </div>
 
       {/* Content — aligned left so Jemma stays visible on the right */}
-      <div className="relative z-30 min-h-[100svh] flex flex-col justify-end lg:justify-center px-6 sm:px-10 lg:px-16 xl:px-24 pt-32 pb-28 lg:pb-20">
+      <div className="relative z-30 flex min-h-[100svh] flex-col justify-end px-6 pb-20 pt-32 sm:px-10 sm:pb-24 lg:justify-center lg:px-16 lg:pb-20 xl:px-24">
         <div className="w-full max-w-7xl mx-auto">
           <div className="max-w-xl lg:max-w-3xl text-left">
             {/* Eyebrow */}
@@ -162,7 +165,7 @@ export default function Hero() {
             >
               <Link
                 href="#contact"
-                className="group inline-flex items-center gap-3 px-8 py-3.5 bg-teal text-navy text-xs font-bold tracking-[0.2em] uppercase transition-all duration-400 hover:bg-white hover:text-navy"
+                className="group inline-flex items-center gap-3 bg-teal px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-navy transition-all duration-400 hover:bg-white hover:text-navy sm:px-8 sm:tracking-[0.2em]"
               >
                 Inquire Today
                 <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">

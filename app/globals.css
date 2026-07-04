@@ -16,6 +16,7 @@ html {
 body {
   background-color: #ffffff;
   color: #0a1428;
+  overflow-x: hidden;
 }
 
 ::selection {
