@@ -47,14 +47,14 @@ export default function Insights() {
           </Link>
         </div>
 
-        <div className="grid gap-10 md:grid-cols-3 lg:gap-12">
+        <div className="grid gap-16 md:grid-cols-3 md:gap-10 lg:gap-12">
           {reels.map((reel) => (
             <Link
               key={reel.id}
               href={reel.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block text-center"
+              className="group mx-auto block max-w-sm text-center md:max-w-none"
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-white">
                 <Image
@@ -72,15 +72,17 @@ export default function Insights() {
                 </div>
               </div>
 
-              <div className="px-5 pt-9">
-                <p className="section-label text-teal mb-4">Instagram Reel</p>
+              <div className="px-3 pt-5 md:px-5 md:pt-9">
+                <p className="section-label mb-4 hidden text-teal md:block">
+                  Instagram Reel
+                </p>
                 <h3 className="font-serif text-2xl md:text-[1.7rem] font-normal leading-tight text-navy group-hover:text-teal transition-colors duration-300">
                   {reel.title}
                 </h3>
-                <p className="mx-auto mt-5 max-w-xs text-sm font-light leading-relaxed text-navy/55">
+                <p className="mx-auto mt-3 max-w-xs text-sm font-light leading-relaxed text-navy/55 md:mt-5">
                   {reel.description}
                 </p>
-                <p className="mt-6 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-navy/45 group-hover:text-teal transition-colors duration-300">
+                <p className="mt-4 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-navy/45 transition-colors duration-300 group-hover:text-teal md:mt-6">
                   Watch on Instagram →
                 </p>
               </div>

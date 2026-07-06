@@ -30,7 +30,7 @@ const testimonials = [
 ];
 
 const BG_IMAGE = "url('/testimonial.png')";
-const PARALLAX_SPEED = 0.5;
+const MOBILE_PARALLAX_RANGE = 90;
 const SLIDE_DURATION = 6000;
 
 export default function Testimonials() {
@@ -48,8 +48,11 @@ export default function Testimonials() {
       if (!section || motionQuery.matches) return;
 
       const rect = section.getBoundingClientRect();
-      const scrolledPast = window.scrollY + rect.top - window.innerHeight;
-      setParallaxY(scrolledPast * -PARALLAX_SPEED);
+      const progress =
+        (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+      const clampedProgress = Math.min(1, Math.max(0, progress));
+
+      setParallaxY((0.5 - clampedProgress) * MOBILE_PARALLAX_RANGE);
     };
 
     const onScroll = () => {
@@ -107,14 +110,14 @@ export default function Testimonials() {
         aria-hidden="true"
       />
 
-      {/* Mobile + fallback: scroll-driven transform parallax */}
+      {/* Mobile + fallback: subtle scroll-driven parallax */}
       <div className="absolute inset-0 z-0 lg:hidden" aria-hidden="true">
         <div className="absolute inset-0 overflow-hidden">
           <div
-            className="absolute left-0 w-full h-[180%] -top-[40%] bg-cover bg-no-repeat"
+            className="absolute -top-[15%] left-0 h-[130%] w-full bg-cover bg-no-repeat"
             style={{
               backgroundImage: BG_IMAGE,
-              backgroundPosition: "left 25% center",
+              backgroundPosition: "center center",
               transform: `translate3d(0, ${parallaxY}px, 0)`,
               willChange: "transform",
             }}

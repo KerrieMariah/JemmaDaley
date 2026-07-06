@@ -7,8 +7,10 @@ import Link from "next/link";
 const slides = [
   {
     src: "/jemma1hero.png",
+    mobileSrc: "/jemma1heromobile.png",
     alt: "Jemma Daley – Financial Advisor",
     position: "right center",
+    mobilePosition: "right center",
   },
   // {
   //   src: "/jemma21hero.png",
@@ -68,11 +70,26 @@ export default function Hero() {
             }`}
           >
             <Image
+              src={slide.mobileSrc}
+              alt={slide.alt}
+              fill
+              className={`object-cover transition-transform ease-out sm:hidden ${
+                current === i
+                  ? "scale-[1.04] duration-[7000ms]"
+                  : "scale-100 duration-[1600ms]"
+              }`}
+              style={{ objectPosition: slide.mobilePosition }}
+              priority={i < 2}
+              sizes="100vw"
+            />
+            <Image
               src={slide.src}
               alt={slide.alt}
               fill
-              className={`object-cover transition-transform ease-out ${
-                current === i ? "scale-[1.04] duration-[7000ms]" : "scale-100 duration-[1600ms]"
+              className={`hidden object-cover transition-transform ease-out sm:block ${
+                current === i
+                  ? "scale-[1.04] duration-[7000ms]"
+                  : "scale-100 duration-[1600ms]"
               }`}
               style={{ objectPosition: slide.position }}
               priority={i < 2}
@@ -111,7 +128,13 @@ export default function Hero() {
               }`}
             >
               <span className="text-xs sm:text-sm font-bold tracking-[0.22em] uppercase text-teal">
-                Financial Advice &amp; Wealth Management
+                Financial Advice
+                <br className="sm:hidden" />
+                <span className="sm:hidden"> &amp; Wealth Management</span>
+                <span className="hidden sm:inline">
+                  {" "}
+                  &amp; Wealth Management
+                </span>
               </span>
               <span className="hidden sm:block w-8 h-px bg-white/20" />
               <span className="hidden sm:block text-[0.65rem] tracking-[0.2em] uppercase text-white/50">
