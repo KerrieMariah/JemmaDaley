@@ -6,26 +6,56 @@ const fromEmail = process.env.RESEND_FROM_EMAIL;
 const toEmail = process.env.CONTACT_TO_EMAIL || "jemma.daley@sjpp.asia";
 
 export async function POST(request: Request) {
+  const requestId = crypto.randomUUID();
+
   try {
     const { name, email, message } = await request.json();
 
     if (!name || !email || !message) {
+      console.warn("[contact-form]", {
+        requestId,
+        code: "CONTACT_VALIDATION_ERROR",
+      });
+
       return NextResponse.json(
-        { error: "Please complete all required fields." },
+        {
+          code: "CONTACT_VALIDATION_ERROR",
+          error: "Please complete all required fields.",
+          requestId,
+        },
         { status: 400 },
       );
     }
 
     if (!resendApiKey || !fromEmail) {
+      console.error("[contact-form]", {
+        requestId,
+        code: "CONTACT_EMAIL_NOT_CONFIGURED",
+        hasResendApiKey: Boolean(resendApiKey),
+        hasFromEmail: Boolean(fromEmail),
+      });
+
       return NextResponse.json(
-        { error: "Email service is not configured yet." },
+        {
+          code: "CONTACT_EMAIL_NOT_CONFIGURED",
+          error: "Email service is not configured yet.",
+          requestId,
+        },
         { status: 500 },
       );
     }
 
     const resend = new Resend(resendApiKey);
 
-    await resend.emails.send({
+    console.info("[contact-form]", {
+      requestId,
+      code: "CONTACT_RESEND_ATTEMPT",
+      from: fromEmail,
+      to: toEmail,
+      replyTo: email,
+    });
+
+    const result = await resend.emails.send({
       from: fromEmail,
       to: toEmail,
       replyTo: email,
@@ -49,10 +79,48 @@ export async function POST(request: Request) {
       `,
     });
 
-    return NextResponse.json({ ok: true });
-  } catch {
+    if (result.error) {
+      console.error("[contact-form]", {
+        requestId,
+        code: "CONTACT_RESEND_ERROR",
+        error: result.error,
+      });
+
+      return NextResponse.json(
+        {
+          code: "CONTACT_RESEND_ERROR",
+          error: "Resend did not accept the email.",
+          requestId,
+        },
+        { status: 502 },
+      );
+    }
+
+    console.info("[contact-form]", {
+      requestId,
+      code: "CONTACT_RESEND_SUCCESS",
+      resendEmailId: result.data?.id,
+    });
+
+    return NextResponse.json({
+      ok: true,
+      code: "CONTACT_RESEND_SUCCESS",
+      requestId,
+      emailId: result.data?.id,
+    });
+  } catch (error) {
+    console.error("[contact-form]", {
+      requestId,
+      code: "CONTACT_UNHANDLED_ERROR",
+      error,
+    });
+
     return NextResponse.json(
-      { error: "Unable to send your message right now." },
+      {
+        code: "CONTACT_UNHANDLED_ERROR",
+        error: "Unable to send your message right now.",
+        requestId,
+      },
       { status: 500 },
     );
   }

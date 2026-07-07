@@ -7,15 +7,25 @@ import Reveal from "@/components/Reveal";
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
+type ContactResponse = {
+  ok?: boolean;
+  code?: string;
+  error?: string;
+  requestId?: string;
+};
+
 export default function Contact() {
   const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [errorInfo, setErrorInfo] = useState<ContactResponse | null>(null);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus("loading");
+    setErrorInfo(null);
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+    let serverError: ContactResponse | null = null;
 
     try {
       const response = await fetch("/api/contact", {
@@ -28,13 +38,25 @@ export default function Contact() {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Unable to send message");
+      const result = (await response.json()) as ContactResponse;
+
+      if (!response.ok || !result.ok) {
+        serverError = result;
+        throw new Error(result.code || "Unable to send message");
       }
 
       form.reset();
       setStatus("success");
-    } catch {
+    } catch (error) {
+      setErrorInfo(
+        serverError || {
+          code: "CONTACT_CLIENT_ERROR",
+          error:
+            error instanceof Error
+              ? error.message
+              : "Unable to send message from browser.",
+        },
+      );
       setStatus("error");
     }
   };
@@ -247,6 +269,14 @@ export default function Contact() {
                   <p className="text-sm font-light text-navy/60">
                     Something went wrong. Please try again or email Jemma
                     directly.
+                    {errorInfo?.code && (
+                      <span className="mt-2 block text-xs uppercase tracking-[0.18em] text-navy/40">
+                        Error code: {errorInfo.code}
+                        {errorInfo.requestId
+                          ? ` / Ref: ${errorInfo.requestId.slice(0, 8)}`
+                          : ""}
+                      </span>
+                    )}
                   </p>
                 )}
                 <button
