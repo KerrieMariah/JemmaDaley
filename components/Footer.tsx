@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Newsletter from "@/components/Newsletter";
 
 const footerNav = [
   { href: "#home", label: "Home" },
@@ -114,6 +115,8 @@ export default function Footer() {
             ))}
           </nav>
         </div>
+
+        <Newsletter />
 
         <p className="mt-12 text-center text-xs text-white/30 lg:mt-20">
           &copy; Jemma Daley {new Date().getFullYear()}
