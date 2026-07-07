@@ -14,7 +14,7 @@ export default function Consultation() {
             </h2>
             <p className="text-white/60 font-light leading-relaxed mb-10 max-w-md">
               Whether you&apos;re building wealth from scratch, planning for
-              retirement, or navigating a major life transition — let&apos;s
+              retirement, or navigating a major life transition we can
               create a plan that aligns with what matters most to you.
             </p>
             <Link

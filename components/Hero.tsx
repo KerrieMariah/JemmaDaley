@@ -8,13 +8,13 @@ const slides = [
   {
     src: "/jemma1hero.png",
     mobileSrc: "/jemma1heromobile.png",
-    alt: "Jemma Daley – Financial Advisor",
+    alt: "Jemma Daley – Financial Adviser",
     position: "right center",
     mobilePosition: "right center",
   },
   // {
   //   src: "/jemma21hero.png",
-  //   alt: "Jemma Daley – Financial Advisor",
+  //   alt: "Jemma Daley – Financial Adviser",
   //   position: "right center",
   // },
 ];
@@ -117,7 +117,6 @@ export default function Hero() {
         </span>
       </div>
 
-      {/* Content — aligned left so Jemma stays visible on the right */}
       <div className="relative z-30 flex min-h-[100svh] flex-col justify-end px-6 pb-20 pt-32 sm:px-10 sm:pb-24 lg:justify-center lg:px-16 lg:pb-20 xl:px-24">
         <div className="w-full max-w-7xl mx-auto">
           <div className="max-w-xl lg:max-w-3xl text-left">

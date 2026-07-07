@@ -38,7 +38,6 @@ export default function Footer() {
             ))}
           </nav>
 
-          {/* Center — brand & contact */}
           <div className="order-1 text-center md:order-2">
             <p className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] font-light uppercase tracking-[0.12em] leading-tight mb-8">
               Jemma

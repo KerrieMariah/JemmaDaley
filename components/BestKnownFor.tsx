@@ -13,8 +13,8 @@ export default function BestKnownFor() {
         </h2>
         <p className="text-navy/70 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-12 font-normal">
           If you&apos;re navigating life abroad and want a clear, confident path
-          for your wealth — from retirement planning to tax-efficient strategies
-          — you&apos;re in the right place. I specialise in making financial
+          for your wealth from retirement planning to tax-efficient strategies
+          then you&apos;re in the right place. I specialise in making financial
           planning approachable, personal, and stress-free.
         </p>
         <Link

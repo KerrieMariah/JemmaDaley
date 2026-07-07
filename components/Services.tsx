@@ -6,9 +6,9 @@ const services = [
   {
     title: "Wealth Management",
     accent: "& Portfolio Structuring",
-    intro: "For expats who want their wealth organized, invested, and working internationally.",
+    intro: "For expats who want their wealth organised, invested, and working internationally.",
     description:
-      "Living internationally means your money rarely sits in one place. I help you structure investments that respect your residency, currency exposure, and long-term ambitions — without the jargon or overwhelm.",
+      "Living internationally means your money rarely sits in one place. I help you structure investments that respect your residency, currency exposure, and long-term ambitions without the jargon or overwhelm.",
     highlights: [
       "Tax-efficient international portfolios",
       "Currency & diversification strategy",
@@ -22,7 +22,7 @@ const services = [
     accent: "& Protection Planning",
     intro: "For families and professionals who want security now and flexibility later.",
     description:
-      "From funding your children's education to securing the retirement you actually want, the right plan gives you options — not anxiety. We'll map out protection and savings that fit your family's real life abroad.",
+      "From funding your children's education to securing the retirement you actually want, the right plan gives you options, not anxiety. We'll map out protection and savings that fit your family's real life abroad.",
     highlights: [
       "Retirement & education funding",
       "Life and income protection",
@@ -36,7 +36,7 @@ const services = [
     accent: "& Estate Planning",
     intro: "For cross-border lives where tax, legacy, and long-term decisions need clarity.",
     description:
-      "Expat wealth comes with layers — multiple jurisdictions, shifting rules, and big decisions about what you leave behind. I help you navigate trust and estate planning with clarity, so your legacy is handled on your terms.",
+      "Expat wealth comes with layers, multiple jurisdictions, shifting rules, and big decisions about what you leave behind. I help you navigate trust and estate planning with clarity, so your legacy is handled on your terms.",
     highlights: [
       "Cross-border tax-efficient structuring",
       "Trust & estate planning",

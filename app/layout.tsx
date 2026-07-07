@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Jemma Daley – Financial Advisor | Hong Kong",
+  title: "Jemma Daley – Financial Adviser | Hong Kong",
   description:
     "Tailored wealth management and financial planning for expats in Hong Kong. Build clarity, confidence, and a secure financial future.",
 };

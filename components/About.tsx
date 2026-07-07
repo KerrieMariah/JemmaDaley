@@ -14,7 +14,7 @@ export default function About() {
               Jemma
             </h2>
             <p className="mb-8 font-serif text-lg uppercase leading-tight text-white/75 md:text-xl lg:mb-9">
-              The Financial Advisor
+              The Financial Adviser
             </p>
 
             <div className="mx-auto max-w-md space-y-5 text-sm font-light leading-relaxed text-white/58 lg:mx-0 lg:max-w-[16rem]">
@@ -26,7 +26,7 @@ export default function About() {
               </p>
               <p>
                 Once, I too faced uncertainty navigating entrepreneurship and
-                finances abroad — which inspired my transition into financial
+                finances abroad, which inspired my transition into financial
                 advising, where I now help expats achieve clarity and
                 confidence in their future.
               </p>

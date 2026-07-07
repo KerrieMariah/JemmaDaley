@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     quote:
-      "Jemma's tailored tax-efficient strategies transformed how I think about my wealth. Her expertise in cross-border planning is unmatched — I couldn't recommend her more highly.",
+      "Jemma's tailored tax-efficient strategies transformed how I think about my wealth. Her expertise in cross-border planning is unmatched, I couldn't recommend her more highly.",
     name: "Emma R.",
     role: "Expat Client, Hong Kong",
   },
