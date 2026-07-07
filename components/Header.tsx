@@ -4,11 +4,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#insights", label: "Insights" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#home", label: "Home" },
+  { href: "/#about", label: "About" },
+  { href: "/#services", label: "Services" },
+  {
+    href: "https://www.sjp.asia/sg/discover/news-insights",
+    label: "Insights",
+    external: true,
+  },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -31,7 +35,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
         <Link
-          href="#home"
+          href="/"
           className={`font-serif text-xl lg:text-2xl tracking-[0.15em] font-medium uppercase transition-colors duration-500 ${
             scrolled || menuOpen ? "text-navy" : "text-white"
           }`}
@@ -44,6 +48,9 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
+              {...(link.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               className={`text-sm tracking-widest uppercase hover:text-teal transition-colors duration-300 ${
                 scrolled ? "text-navy/70" : "text-white/75"
               }`}
@@ -54,7 +61,7 @@ export default function Header() {
         </nav>
 
         <Link
-          href="#contact"
+          href="/#contact"
           className={`hidden lg:inline-flex items-center px-6 py-2.5 border text-xs tracking-widest uppercase transition-all duration-300 ${
             scrolled
               ? "border-navy text-navy hover:bg-navy hover:text-white"
@@ -88,6 +95,9 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
+              {...(link.external
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               onClick={() => setMenuOpen(false)}
               className="text-sm tracking-widest uppercase text-navy/70 hover:text-teal transition-colors"
             >
@@ -95,7 +105,7 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="#contact"
+            href="/#contact"
             onClick={() => setMenuOpen(false)}
             className="inline-flex items-center justify-center px-6 py-3 border border-navy text-navy text-xs tracking-widest uppercase"
           >

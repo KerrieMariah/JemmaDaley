@@ -2,11 +2,15 @@ import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 
 const footerNav = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#contact", label: "Contact" },
-  { href: "#insights", label: "Insights" },
+  { href: "/#home", label: "Home" },
+  { href: "/#about", label: "About" },
+  { href: "/#services", label: "Services" },
+  { href: "/#contact", label: "Contact" },
+  {
+    href: "https://www.sjp.asia/sg/discover/news-insights",
+    label: "Insights",
+    external: true,
+  },
 ];
 
 const footerLinks = [
@@ -15,10 +19,14 @@ const footerLinks = [
     label: "LinkedIn",
     external: true,
   },
-  { href: "#insights", label: "Podcast", external: false },
-  { href: "#contact", label: "Newsletter", external: false },
-  { href: "#contact", label: "Legal", external: false },
-  { href: "#contact", label: "Privacy Policy", external: false },
+  {
+    href: "https://www.sjp.asia/sg/discover/news-insights",
+    label: "Insights",
+    external: true,
+  },
+  { href: "#newsletter", label: "Newsletter", external: false },
+  { href: "/privacy-policy", label: "Legal", external: false },
+  { href: "/privacy-policy", label: "Privacy Policy", external: false },
 ];
 
 export default function Footer() {
@@ -32,6 +40,9 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 className="text-sm text-white/80 hover:text-teal transition-colors duration-300"
               >
                 {link.label}
@@ -118,9 +129,21 @@ export default function Footer() {
 
         <Newsletter />
 
-        <p className="mt-12 text-center text-xs text-white/30 lg:mt-20">
-          &copy; Jemma Daley {new Date().getFullYear()}
-        </p>
+        <div className="mt-12 flex flex-col items-center justify-center gap-2 text-center text-xs text-white/30 sm:flex-row sm:gap-4 lg:mt-20">
+          <p>&copy; Jemma Daley {new Date().getFullYear()}</p>
+          <span className="hidden h-1 w-1 rounded-full bg-white/20 sm:block" />
+          <p>
+            Designed by{" "}
+            <a
+              href="https://kerriemariah.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/45 transition-colors hover:text-teal"
+            >
+              KMA
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

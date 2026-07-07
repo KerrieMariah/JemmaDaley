@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import AjaxLoader from "@/components/AjaxLoader";
 
 type Status = "idle" | "loading" | "success" | "missing-endpoint" | "error";
 
@@ -38,7 +39,10 @@ export default function Newsletter() {
   };
 
   return (
-    <div className="mx-auto mt-14 max-w-2xl border-y border-white/10 py-8 text-center lg:mt-16">
+    <div
+      id="newsletter"
+      className="mx-auto mt-14 max-w-2xl border-y border-white/10 py-8 text-center lg:mt-16"
+    >
       <p className="section-label mb-4 text-teal">Newsletter</p>
       <h2 className="font-serif text-2xl font-light leading-tight text-white md:text-3xl">
         Notes on wealth,
@@ -67,8 +71,11 @@ export default function Newsletter() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="bg-teal px-7 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-all duration-300 hover:bg-white disabled:cursor-wait disabled:opacity-70"
+          className="inline-flex items-center justify-center gap-3 bg-teal px-7 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-navy transition-all duration-300 hover:bg-white disabled:cursor-wait disabled:opacity-70"
         >
+          {status === "loading" && (
+            <AjaxLoader label="Joining newsletter" tone="dark" />
+          )}
           {status === "loading" ? "Joining" : "Join"}
         </button>
       </form>

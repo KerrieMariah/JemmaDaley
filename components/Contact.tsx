@@ -1,15 +1,42 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import AjaxLoader from "@/components/AjaxLoader";
 import Reveal from "@/components/Reveal";
 
-export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+type SubmitStatus = "idle" | "loading" | "success" | "error";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
+export default function Contact() {
+  const [status, setStatus] = useState<SubmitStatus>("idle");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("loading");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to send message");
+      }
+
+      form.reset();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -153,7 +180,7 @@ export default function Contact() {
               come back to you with the next best step.
             </p>
 
-            {submitted ? (
+            {status === "success" ? (
               <div className="py-12 text-center">
                 <p className="mb-2 font-serif text-2xl text-navy">Thank you!</p>
                 <p className="font-light text-navy/60">
@@ -211,15 +238,26 @@ export default function Contact() {
                   <input
                     type="checkbox"
                     required
+                    name="privacy"
                     className="mt-1 accent-teal"
                   />
                   I have read and agree to the Privacy Policy
                 </label>
+                {status === "error" && (
+                  <p className="text-sm font-light text-navy/60">
+                    Something went wrong. Please try again or email Jemma
+                    directly.
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-navy py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-teal hover:text-navy sm:tracking-[0.2em]"
+                  disabled={status === "loading"}
+                  className="inline-flex w-full items-center justify-center gap-3 bg-navy py-4 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-teal hover:text-navy disabled:cursor-wait disabled:opacity-70 sm:tracking-[0.2em]"
                 >
-                  Send Message
+                  {status === "loading" && (
+                    <AjaxLoader label="Sending message" />
+                  )}
+                  {status === "loading" ? "Sending" : "Send Message"}
                 </button>
               </form>
             )}
