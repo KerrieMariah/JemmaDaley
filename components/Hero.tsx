@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { CALENDLY_URL } from "@/lib/links";
 
 const slides = [
   {
@@ -186,10 +187,12 @@ export default function Hero() {
               }`}
             >
               <Link
-                href="#contact"
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 bg-teal px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-navy transition-all duration-400 hover:bg-white hover:text-navy sm:px-8 sm:tracking-[0.2em]"
               >
-                Inquire Today
+                Enquire Today
                 <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>

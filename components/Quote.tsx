@@ -7,7 +7,7 @@ export default function Quote() {
         <p className="font-serif text-3xl md:text-4xl lg:text-[3.25rem] font-semibold text-navy leading-tight mb-10">
           <span className="quote-mark block mb-4 font-semibold">&ldquo;</span>
           Financial planning illuminates the path to confidence, transforming
-          complexity into a clear vision for your future
+          complexity into a clear vision for your future.
           <span className="quote-mark block mt-4 font-semibold">&rdquo;</span>
         </p>
         <p className="section-label text-navy/60 font-semibold tracking-[0.3em]">

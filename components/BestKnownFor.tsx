@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import { CALENDLY_URL } from "@/lib/links";
 
 export default function BestKnownFor() {
   return (
@@ -11,18 +12,24 @@ export default function BestKnownFor() {
           <br />
           <span className="text-teal">get their finances in order</span>
         </h2>
-        <p className="text-navy/70 text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-12 font-normal">
-          If you&apos;re navigating life abroad and want a clear, confident path
-          for your wealth from retirement planning to tax-efficient strategies
-          then you&apos;re in the right place. I specialise in making financial
-          planning approachable, personal, and stress-free.
-        </p>
+        <div className="mx-auto mb-12 max-w-2xl space-y-4 text-sm font-normal leading-relaxed text-navy/70 md:text-base">
+          <p>
+            If you&apos;re navigating life abroad and want a clear, confident
+            path to managing your wealth, then you&apos;re in the right place.
+          </p>
+          <p>
+            Backed by a FTSE 100 company, I specialise in making financial
+            planning approachable, personal, and stress-free.
+          </p>
+        </div>
         <Link
-          href="#contact"
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center px-8 py-3.5 border border-navy/35 text-navy text-[0.65rem] font-semibold tracking-[0.24em] uppercase hover:border-teal hover:bg-teal hover:text-navy transition-all duration-300"
         >
           <span className="mr-3 h-3 w-3 rounded-full border border-current" />
-          Inquire Today
+          Enquire Today
         </Link>
       </Reveal>
     </section>

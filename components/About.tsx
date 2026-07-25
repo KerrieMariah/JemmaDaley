@@ -25,7 +25,7 @@ export default function About() {
                 life.
               </p>
               <p>
-                Once, I too faced uncertainty navigating entrepreneurship and
+                I once too faced uncertainty navigating entrepreneurship and
                 finances abroad, which inspired my transition into financial
                 advising, where I now help expats achieve clarity and
                 confidence in their future.
@@ -36,7 +36,7 @@ export default function About() {
               href="#contact"
               className="mt-10 inline-flex items-center gap-3 bg-teal px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-navy transition-all duration-300 hover:bg-white"
             >
-              Read More
+              Get in Touch
               <span aria-hidden="true">→</span>
             </Link>
           </div>

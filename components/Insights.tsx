@@ -35,7 +35,7 @@ export default function Insights() {
         <div className="mb-16 text-center">
           <p className="section-label text-navy/50 mb-4">Watch &amp; Learn</p>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-navy leading-none">
-            From <span className="italic">the Videos</span>
+            From <span className="italic">the videos</span>
           </h2>
           <Link
             href="https://www.instagram.com/jemmadaley"

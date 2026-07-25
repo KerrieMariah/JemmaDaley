@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 import AjaxLoader from "@/components/AjaxLoader";
 import Reveal from "@/components/Reveal";
@@ -94,72 +95,9 @@ export default function Contact() {
               />
             </div>
 
-            <div className="flex items-center justify-center gap-5 sm:hidden">
-              <a
-                href="mailto:jemma.daley@sjpp.asia"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-navy/20 text-navy transition-colors hover:border-teal hover:bg-teal"
-                aria-label="Email Jemma"
-              >
-                <svg
-                  width="19"
-                  height="19"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/jemmadaley"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-navy/20 text-navy transition-colors hover:border-teal hover:bg-teal"
-                aria-label="View Jemma on LinkedIn"
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-              <a
-                href="https://www-fallback.instagram.com/jemmadaley/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-navy/20 text-navy transition-colors hover:border-teal hover:bg-teal"
-                aria-label="View Jemma on Instagram"
-              >
-                <svg
-                  width="19"
-                  height="19"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
-                </svg>
-              </a>
-            </div>
-
-            <div className="hidden space-y-4 break-words text-sm text-navy/70 sm:block sm:text-base">
+            <div className="space-y-4 break-words text-sm text-navy/70 sm:text-base">
               <p className="flex flex-wrap gap-x-4 gap-y-1">
-                <span className="section-label mr-4 text-navy/40">E.</span>
+                <span className="section-label mr-4 text-navy/40">Email</span>
                 <a
                   href="mailto:jemma.daley@sjpp.asia"
                   className="transition-colors hover:text-teal"
@@ -168,7 +106,7 @@ export default function Contact() {
                 </a>
               </p>
               <p className="flex flex-wrap gap-x-4 gap-y-1">
-                <span className="section-label mr-4 text-navy/40">In.</span>
+                <span className="section-label mr-4 text-navy/40">LinkedIn</span>
                 <a
                   href="https://www.linkedin.com/in/jemmadaley"
                   target="_blank"
@@ -179,7 +117,7 @@ export default function Contact() {
                 </a>
               </p>
               <p className="flex flex-wrap gap-x-4 gap-y-1">
-                <span className="section-label mr-4 text-navy/40">Ig.</span>
+                <span className="section-label mr-4 text-navy/40">Instagram</span>
                 <a
                   href="https://www-fallback.instagram.com/jemmadaley/"
                   target="_blank"
@@ -291,6 +229,20 @@ export default function Contact() {
                 </button>
               </form>
             )}
+
+            <p className="mt-6 text-[0.7rem] leading-relaxed text-navy/45 sm:text-xs">
+              By responding to this contact form, you hereby give consent to St.
+              James&apos;s Place (Hong Kong) Limited (&ldquo;St. James&apos;s
+              Place&rdquo;) to collect, use and disclose your personal data in
+              accordance with our{" "}
+              <Link
+                href="/privacy-policy"
+                className="underline underline-offset-2 transition-colors hover:text-teal"
+              >
+                Privacy Policy
+              </Link>
+              .
+            </p>
           </Reveal>
         </div>
       </div>

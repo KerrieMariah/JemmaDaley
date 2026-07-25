@@ -2,11 +2,6 @@ import Image from "next/image";
 
 const affiliations = [
   {
-    name: "St. James's Place",
-    src: "/logos/stjamesplace.png",
-    className: "h-14 w-32 sm:h-20 sm:w-40",
-  },
-  {
     name: "ImpactHK",
     src: "/logos/impacth.png",
     className: "h-14 w-36 sm:h-20 sm:w-52",

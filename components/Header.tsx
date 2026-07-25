@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { CALENDLY_URL } from "@/lib/links";
 
 const navLinks = [
   { href: "/#home", label: "Home" },
@@ -61,14 +62,16 @@ export default function Header() {
         </nav>
 
         <Link
-          href="/#contact"
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`hidden lg:inline-flex items-center px-6 py-2.5 border text-xs tracking-widest uppercase transition-all duration-300 ${
             scrolled
               ? "border-navy text-navy hover:bg-navy hover:text-white"
               : "border-white/60 text-white hover:bg-teal hover:border-teal hover:text-navy"
           }`}
         >
-          Inquire Today
+          Enquire Today
         </Link>
 
         <button
@@ -105,11 +108,13 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             className="inline-flex items-center justify-center px-6 py-3 border border-navy text-navy text-xs tracking-widest uppercase"
           >
-            Inquire Today
+            Enquire Today
           </Link>
         </nav>
       )}

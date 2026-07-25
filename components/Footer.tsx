@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
 
@@ -63,7 +64,7 @@ export default function Footer() {
             </p>
 
             <p className="text-sm text-white/70 font-light mb-1">
-              E.{" "}
+              Email{" "}
               <a
                 href="mailto:jemma.daley@sjpp.asia"
                 className="hover:text-teal transition-colors duration-300"
@@ -129,19 +130,63 @@ export default function Footer() {
 
         <Newsletter />
 
-        <div className="mt-12 flex flex-col items-center justify-center gap-2 text-center text-xs text-white/30 sm:flex-row sm:gap-4 lg:mt-20">
-          <p>&copy; Jemma Daley {new Date().getFullYear()}</p>
-          <span className="hidden h-1 w-1 rounded-full bg-white/20 sm:block" />
+        <div className="mt-12 flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-center lg:mt-20">
+          <div className="flex flex-col items-center gap-2 text-center text-xs text-white/30 sm:flex-row sm:gap-4 sm:text-left">
+            <p>&copy; Jemma Daley {new Date().getFullYear()}</p>
+            <span className="hidden h-1 w-1 rounded-full bg-white/20 sm:block" />
+            <p>
+              Designed by{" "}
+              <a
+                href="https://kerriemariah.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/45 transition-colors hover:text-teal"
+              >
+                KMA
+              </a>
+            </p>
+          </div>
+
+          <div className="relative h-24 w-24 shrink-0 opacity-80 sm:h-32 sm:w-32 lg:h-40 lg:w-40">
+            <Image
+              src="/logos/stjamesplace.png"
+              alt="St. James's Place"
+              fill
+              className="object-contain brightness-0 invert"
+              sizes="160px"
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 space-y-4 border-t border-white/10 pt-8 text-[0.65rem] leading-relaxed text-white/35 sm:text-xs">
           <p>
-            Designed by{" "}
-            <a
-              href="https://kerriemariah.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/45 transition-colors hover:text-teal"
-            >
-              KMA
-            </a>
+            This website is a general communication that is provided for
+            informational purposes only. It should not be relied upon as
+            financial advice, and it does not constitute a recommendation, an
+            offer or solicitation. No responsibility can be accepted for any
+            loss arising from action taken or refrained from based on this
+            publication. All information presented herein is considered to be
+            accurate at the time of production, but no warranty of accuracy is
+            given and no liability in respect of any error or omission is
+            accepted.
+          </p>
+          <p>
+            The &lsquo;St. James&apos;s Place Partnership&rsquo; and the titles
+            &lsquo;Partner&rsquo;, &lsquo;Adviser&rsquo;, &lsquo;Partner
+            Practice&rsquo; or any variations thereof are marketing terms used
+            to describe representatives of the St. James&apos;s Place Group
+            (&lsquo;SJP Group&rsquo;). St. James&apos;s Place (Hong Kong)
+            Limited (&lsquo;SJPHK&rsquo;), is a licensed Insurance Broker
+            Company regulated by the Insurance Authority
+            (&lsquo;IA&rsquo;), a Licensed Corporation regulated by the
+            Securities and Futures Commission (&lsquo;SFC&rsquo;) and a
+            Principal Intermediary registered with the Mandatory Provident Fund
+            Schemes Authority (&lsquo;MPFA&rsquo;) in Hong Kong. IA Licence No.
+            FB1075. SFC Central Entity No. AAV439. MPFA Registration No.
+            IC000852. SJPHK is part of the SJP Group. Members of the St.
+            James&apos;s Place Partnership in Hong Kong are appointed by SJPHK
+            to act in a licensed and regulated capacity and may facilitate
+            business with other companies within the SJP Group.
           </p>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CALENDLY_URL } from "@/lib/links";
 
 export default function Consultation() {
   return (
@@ -18,7 +19,9 @@ export default function Consultation() {
               create a plan that aligns with what matters most to you.
             </p>
             <Link
-              href="#contact"
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-10 py-4 bg-teal text-navy text-xs tracking-[0.2em] uppercase hover:bg-white transition-all duration-300"
             >
               Schedule a Call

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import { CALENDLY_URL } from "@/lib/links";
 
 const services = [
   {
@@ -16,6 +17,8 @@ const services = [
     ],
     image: "/services1.webp",
     imageAlt: "Financial charts and portfolio analysis",
+    disclaimer:
+      "The value of an investment with St. James's Place will be directly linked to the performance of the funds selected and may fall as well as rise. You may get back less than the amount invested.",
   },
   {
     title: "Retirement",
@@ -30,6 +33,8 @@ const services = [
     ],
     image: "/services5.jpg",
     imageAlt: "Family enjoying time together outdoors",
+    disclaimer:
+      "The value of an investment with St. James's Place will be directly linked to the performance of the funds selected and may fall as well as rise. You may get back less than the amount invested.",
   },
   {
     title: "Tax, Trust",
@@ -44,6 +49,8 @@ const services = [
     ],
     image: "/estate.png",
     imageAlt: "Professional reviewing financial documents at a desk",
+    disclaimer:
+      "St. James's Place (Hong Kong) Limited is not licensed to provide tax advice. Any information provided is for general information purposes only and should not be relied upon as tax advice. You should seek independent advice from a suitably qualified tax advisor in relation to your specific circumstances before taking any action.",
   },
 ];
 
@@ -70,10 +77,10 @@ export default function Services() {
             </h2>
           </div>
           <p className="max-w-xl text-sm font-light leading-relaxed text-white/62 md:text-base lg:ml-auto">
-            Every expat story is different. Whether you&apos;re building from
-            scratch, planning a major transition, or protecting what you&apos;ve
-            already achieved, these are the calm, practical conversations where
-            we start.
+            Every expat story is different. Whether you&apos;re building wealth
+            from scratch, planning a major career transition, or protecting what
+            you have already achieved, these are the calm, practical
+            conversations where we start.
           </p>
         </Reveal>
 
@@ -140,14 +147,22 @@ export default function Services() {
                       </ul>
 
                       <Link
-                        href="#contact"
+                        href={CALENDLY_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="mt-9 inline-flex items-center border border-white/30 px-6 py-3.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:border-teal hover:bg-teal hover:text-navy sm:px-7 sm:tracking-[0.24em]"
                       >
-                        Inquire Today
+                        Enquire Today
                         <span className="ml-3 transition-transform duration-300 group-hover:translate-x-1">
                           →
                         </span>
                       </Link>
+
+                      {service.disclaimer ? (
+                        <p className="mt-6 text-[0.65rem] leading-relaxed text-white/35 sm:text-xs">
+                          {service.disclaimer}
+                        </p>
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -155,6 +170,12 @@ export default function Services() {
             </Reveal>
           ))}
         </div>
+
+        <p className="mx-auto mt-12 max-w-3xl text-center text-[0.65rem] leading-relaxed text-white/35 sm:mt-16 sm:text-xs">
+          The value of an investment with St. James&apos;s Place will be directly
+          linked to the performance of the funds selected and may fall as well
+          as rise. You may get back less than the amount invested.
+        </p>
       </div>
     </section>
   );
