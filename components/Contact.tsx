@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { FormEvent, useState } from "react";
 import AjaxLoader from "@/components/AjaxLoader";
 import Reveal from "@/components/Reveal";
@@ -234,14 +233,24 @@ export default function Contact() {
               By responding to this contact form, you hereby give consent to St.
               James&apos;s Place (Hong Kong) Limited (&ldquo;St. James&apos;s
               Place&rdquo;) to collect, use and disclose your personal data in
-              accordance with our{" "}
-              <Link
-                href="/privacy-policy"
+              accordance with the St. James&apos;s Place Privacy Policy, which
+              is available at{" "}
+              <a
+                href="https://www.sjp.asia/hk/site-services/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline underline-offset-2 transition-colors hover:text-teal"
               >
-                Privacy Policy
-              </Link>
-              .
+                https://www.sjp.asia/hk/site-services/privacy-policy
+              </a>{" "}
+              which you have read and understood. You further understand and
+              agree that the personal data provided is meant to allow St.
+              James&apos;s Place to contact you for a non-obligatory
+              consultation and/or to address your enquiry. You also consent to
+              St. James&apos;s Place sharing your contact details with selected
+              third-party partners, only where relevant to the subject matter of
+              your enquiry, or participation in a promotion or event, for the
+              purpose of them contacting you directly.
             </p>
           </Reveal>
         </div>

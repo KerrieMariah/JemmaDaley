@@ -16,9 +16,13 @@ const services = [
       "Ongoing reviews as your life evolves",
     ],
     image: "/services1.webp",
+    imagePosition: "object-center",
     imageAlt: "Financial charts and portfolio analysis",
-    disclaimer:
+    disclaimers: [
       "The value of an investment with St. James's Place will be directly linked to the performance of the funds selected and may fall as well as rise. You may get back less than the amount invested.",
+      "St. James's Place (Hong Kong) Limited is not licensed to provide tax advice. Any information provided is for general information purposes only and should not be relied upon as tax advice. You should seek independent advice from a suitably qualified tax advisor in relation to your specific circumstances before taking any action.",
+      "Recommendation relating to currency, foreign exchange and international money transfers involves a referral to a service provider that is separate and distinct from St. James's Place.",
+    ],
   },
   {
     title: "Retirement",
@@ -32,9 +36,13 @@ const services = [
       "Reserves for the unexpected",
     ],
     image: "/services5.jpg",
+    desktopImage: "/service2.png",
+    imagePosition: "object-[right_center]",
+    desktopImagePosition: "object-[right_center]",
     imageAlt: "Family enjoying time together outdoors",
-    disclaimer:
+    disclaimers: [
       "The value of an investment with St. James's Place will be directly linked to the performance of the funds selected and may fall as well as rise. You may get back less than the amount invested.",
+    ],
   },
   {
     title: "Tax, Trust",
@@ -48,9 +56,14 @@ const services = [
       "Legacy planning for your family",
     ],
     image: "/estate.png",
+    imagePosition: "object-center",
     imageAlt: "Professional reviewing financial documents at a desk",
-    disclaimer:
+    disclaimers: [
+      "The value of an investment with St. James's Place will be directly linked to the performance of the funds selected and may fall as well as rise. You may get back less than the amount invested.",
       "St. James's Place (Hong Kong) Limited is not licensed to provide tax advice. Any information provided is for general information purposes only and should not be relied upon as tax advice. You should seek independent advice from a suitably qualified tax advisor in relation to your specific circumstances before taking any action.",
+      "Please note your home or other property may be repossessed if you do not keep up repayments on your mortgage.",
+      "Recommendation relating to a Will, matters of guardianship, trust, Lasting Power of Attorney or mortgages involves a referral to a service provider that is separate and distinct from St. James's Place.",
+    ],
   },
 ];
 
@@ -103,9 +116,20 @@ export default function Services() {
                     src={service.image}
                     alt={service.imageAlt}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    className={`object-cover ${service.imagePosition} transition-transform duration-700 group-hover:scale-[1.04] ${
+                      service.desktopImage ? "lg:hidden" : ""
+                    }`}
                     sizes="(max-width: 1024px) 100vw, 42vw"
                   />
+                  {service.desktopImage ? (
+                    <Image
+                      src={service.desktopImage}
+                      alt={service.imageAlt}
+                      fill
+                      className={`hidden object-cover ${service.desktopImagePosition ?? "object-center"} transition-transform duration-700 group-hover:scale-[1.04] lg:block`}
+                      sizes="42vw"
+                    />
+                  ) : null}
                   <div className="absolute inset-0 bg-navy/10 transition-colors duration-500 group-hover:bg-navy/20" />
                 </div>
 
@@ -158,11 +182,28 @@ export default function Services() {
                         </span>
                       </Link>
 
-                      {service.disclaimer ? (
+                      {service.disclaimers.length === 1 ? (
                         <p className="mt-6 text-[0.65rem] leading-relaxed text-white/35 sm:text-xs">
-                          {service.disclaimer}
+                          {service.disclaimers[0]}
                         </p>
-                      ) : null}
+                      ) : (
+                        <details className="group/disclaimer mt-6 border-t border-white/10 pt-4">
+                          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/45 transition-colors hover:text-white/70 [&::-webkit-details-marker]:hidden">
+                            Important information
+                            <span
+                              className="text-sm font-light leading-none transition-transform duration-300 group-open/disclaimer:rotate-45"
+                              aria-hidden="true"
+                            >
+                              +
+                            </span>
+                          </summary>
+                          <div className="mt-4 space-y-3 text-[0.65rem] leading-relaxed text-white/35 sm:text-xs">
+                            {service.disclaimers.map((paragraph) => (
+                              <p key={paragraph}>{paragraph}</p>
+                            ))}
+                          </div>
+                        </details>
+                      )}
                     </div>
                   </div>
                 </div>
