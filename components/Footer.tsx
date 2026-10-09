@@ -171,6 +171,10 @@ export default function Footer() {
             accepted.
           </p>
           <p>
+            Jemma Daley is a licensed representative of St. James&apos;s Place
+            (Hong Kong) Limited. SFC License No.JC4743, IA License No. BRK937.
+          </p>
+          <p>
             The &lsquo;St. James&apos;s Place Partnership&rsquo; and the titles
             &lsquo;Partner&rsquo;, &lsquo;Adviser&rsquo;, &lsquo;Partner
             Practice&rsquo; or any variations thereof are marketing terms used

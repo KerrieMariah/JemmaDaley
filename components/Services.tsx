@@ -108,8 +108,8 @@ export default function Services() {
                 }`}
               >
                 <div
-                  className={`relative min-h-[240px] overflow-hidden bg-navy sm:min-h-[280px] md:min-h-[360px] lg:min-h-full ${
-                    index % 2 === 1 ? "lg:order-2" : ""
+                  className={`relative min-h-[240px] overflow-hidden bg-navy sm:min-h-[280px] md:min-h-[360px] lg:row-start-1 lg:min-h-full ${
+                    index % 2 === 1 ? "lg:col-start-2" : "lg:col-start-1"
                   }`}
                 >
                   <Image
@@ -133,7 +133,11 @@ export default function Services() {
                   <div className="absolute inset-0 bg-navy/10 transition-colors duration-500 group-hover:bg-navy/20" />
                 </div>
 
-                <div className="flex flex-col justify-center p-6 sm:p-8 md:p-10 lg:p-14">
+                <div
+                  className={`flex flex-col justify-center p-6 sm:p-8 md:p-10 lg:row-start-1 lg:p-14 ${
+                    index % 2 === 1 ? "lg:col-start-1" : "lg:col-start-2"
+                  }`}
+                >
                   <div className="mb-7 flex items-center gap-5 sm:mb-8">
                     <span className="h-1.5 w-1.5 rounded-full bg-teal" />
                     <span className="h-px flex-1 bg-white/12" />
@@ -181,31 +185,14 @@ export default function Services() {
                           →
                         </span>
                       </Link>
-
-                      {service.disclaimers.length === 1 ? (
-                        <p className="mt-6 text-[0.65rem] leading-relaxed text-white/35 sm:text-xs">
-                          {service.disclaimers[0]}
-                        </p>
-                      ) : (
-                        <details className="group/disclaimer mt-6 border-t border-white/10 pt-4">
-                          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/45 transition-colors hover:text-white/70 [&::-webkit-details-marker]:hidden">
-                            Important information
-                            <span
-                              className="text-sm font-light leading-none transition-transform duration-300 group-open/disclaimer:rotate-45"
-                              aria-hidden="true"
-                            >
-                              +
-                            </span>
-                          </summary>
-                          <div className="mt-4 space-y-3 text-[0.65rem] leading-relaxed text-white/35 sm:text-xs">
-                            {service.disclaimers.map((paragraph) => (
-                              <p key={paragraph}>{paragraph}</p>
-                            ))}
-                          </div>
-                        </details>
-                      )}
                     </div>
                   </div>
+                </div>
+
+                <div className="space-y-3 border-t border-white/10 px-6 py-5 text-[0.65rem] leading-relaxed text-white/35 sm:px-8 sm:text-xs md:px-10 lg:col-span-2 lg:row-start-2 lg:px-14">
+                  {service.disclaimers.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
                 </div>
               </article>
             </Reveal>
