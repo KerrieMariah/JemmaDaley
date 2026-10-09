@@ -187,12 +187,12 @@ export default function Services() {
                       </Link>
                     </div>
                   </div>
-                </div>
 
-                <div className="space-y-3 border-t border-white/10 px-6 py-5 text-[0.65rem] leading-relaxed text-white/35 sm:px-8 sm:text-xs md:px-10 lg:col-span-2 lg:row-start-2 lg:px-14">
-                  {service.disclaimers.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+                  <div className="mt-8 space-y-3 border-t border-white/10 pt-5 text-[0.65rem] leading-relaxed text-white/35 sm:text-xs">
+                    {service.disclaimers.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
                 </div>
               </article>
             </Reveal>
