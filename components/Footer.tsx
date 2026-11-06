@@ -8,7 +8,7 @@ const footerNav = [
   { href: "/#services", label: "Services" },
   { href: "/#contact", label: "Contact" },
   {
-    href: "https://www.sjp.asia/sg/discover/news-insights",
+    href: "https://www.sjp.asia/hk/discover/news-insights",
     label: "Insights",
     external: true,
   },
@@ -21,7 +21,7 @@ const footerLinks = [
     external: true,
   },
   {
-    href: "https://www.sjp.asia/sg/discover/news-insights",
+    href: "https://www.sjp.asia/hk/discover/news-insights",
     label: "Insights",
     external: true,
   },
@@ -172,7 +172,7 @@ export default function Footer() {
           </p>
           <p>
             Jemma Daley is a licensed representative of St. James&apos;s Place
-            (Hong Kong) Limited. SFC License No.JC4743, IA License No. BRK937.
+            (Hong Kong) Limited. SFC License No. JC4743, IA License No. BRK937.
           </p>
           <p>
             The &lsquo;St. James&apos;s Place Partnership&rsquo; and the titles

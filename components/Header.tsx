@@ -9,7 +9,7 @@ const navLinks = [
   { href: "/#about", label: "About" },
   { href: "/#services", label: "Services" },
   {
-    href: "https://www.sjp.asia/sg/discover/news-insights",
+    href: "https://www.sjp.asia/hk/discover/news-insights",
     label: "Insights",
     external: true,
   },

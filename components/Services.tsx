@@ -198,12 +198,6 @@ export default function Services() {
             </Reveal>
           ))}
         </div>
-
-        <p className="mx-auto mt-12 max-w-3xl text-center text-[0.65rem] leading-relaxed text-white/35 sm:mt-16 sm:text-xs">
-          The value of an investment with St. James&apos;s Place will be directly
-          linked to the performance of the funds selected and may fall as well
-          as rise. You may get back less than the amount invested.
-        </p>
       </div>
     </section>
   );
